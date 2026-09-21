@@ -1,870 +1,1525 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* =========================================================
+   REAGAN CHILES — MECHANICAL ENGINEERING PORTFOLIO
+   ========================================================= */
+
+
+/* =========================================================
+   1. RESET / BASE
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #f5f6f8;
+  color: #111827;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.container {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   2. TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3 {
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  color: #4b5563;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: #2563eb;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.section-heading {
+  margin-bottom: 60px;
+}
+
+.section-heading h2 span,
+.hero-copy h1 span {
+  color: #2563eb;
+}
+
+.section-heading.split-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
 
-  <meta
-    name="description"
-    content="Personal portfolio of Reagan Chiles, a mechanical engineering student at the University of Colorado Boulder."
-  >
 
-  <title>Reagan Chiles | Mechanical Engineering Portfolio</title>
+/* =========================================================
+   3. HEADER
+   ========================================================= */
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  >
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 
-  <link rel="stylesheet" href="style.css">
-</head>
+  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+}
 
-<body>
+.nav {
+  min-height: 78px;
 
-  <!-- ================= HEADER ================= -->
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  <header class="site-header">
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 
-    <nav class="nav container">
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+}
 
-      <a class="brand" href="#top" aria-label="Home">
-        <span class="brand-mark">RC</span>
-        <span>Reagan Chiles</span>
-      </a>
+.brand-mark {
+  width: 40px;
+  height: 40px;
 
-      <button
-        class="menu-toggle"
-        aria-label="Toggle navigation"
-        aria-expanded="false"
-      >
-        ☰
-      </button>
+  display: grid;
+  place-items: center;
 
-      <div class="nav-links">
+  border-radius: 10px;
 
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
+  background: #111827;
+  color: white;
 
-        <a
-          class="nav-button"
-          href="assets/resume.pdf"
-          download
-        >
-          Resume ↗
-        </a>
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
 
-      </div>
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
 
-    </nav>
+  font-size: 0.9rem;
+  font-weight: 500;
+}
 
-  </header>
+.nav-links a {
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
 
+.nav-links a:hover {
+  color: #2563eb;
+}
 
-  <main id="top">
+.nav-button {
+  padding: 11px 17px;
 
-    <!-- ================= HERO ================= -->
+  background: #111827;
+  color: white;
 
-    <section class="hero container">
+  border-radius: 8px;
 
-      <div class="hero-copy">
+  font-weight: 600;
+}
 
-        <p class="eyebrow">
-          <span class="status-dot"></span>
-          Mechanical Engineering Student
-        </p>
+.nav-button:hover {
+  background: #2563eb;
+  color: white !important;
+}
 
-        <h1>
-          Engineering solutions
-          <span>through problem solving.</span>
-        </h1>
+.menu-toggle {
+  display: none;
 
-        <p class="hero-text">
-          I’m Reagan Chiles, a mechanical engineering student at the
-          University of Colorado Boulder. I’m interested in applying
-          engineering principles, technical skills, and hands-on experience
-          to solve real-world problems.
-        </p>
+  border: 0;
+  background: transparent;
 
-        <div class="hero-actions">
+  font-size: 1.6rem;
+  cursor: pointer;
+}
 
-          <a class="button primary" href="#projects">
-            View my projects
-          </a>
 
-          <a class="button secondary" href="#contact">
-            Let's connect
-          </a>
+/* =========================================================
+   4. HERO
+   ========================================================= */
 
-        </div>
+.hero {
+  min-height: calc(100vh - 78px);
 
-        <div class="quick-stats">
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 60px;
 
-          <div>
-            <strong>3.51</strong>
-            <span>GPA</span>
-          </div>
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
 
-          <div>
-            <strong>2028</strong>
-            <span>Expected Graduation</span>
-          </div>
+.hero-copy {
+  position: relative;
+  z-index: 2;
+}
 
-          <div>
-            <strong>2</strong>
-            <span>Work Experiences</span>
-          </div>
+.hero-copy h1 {
+  max-width: 850px;
+  margin-bottom: 28px;
+}
 
-        </div>
+.hero-text {
+  max-width: 650px;
 
-      </div>
+  font-size: 1.08rem;
+  line-height: 1.8;
 
+  margin-bottom: 35px;
+}
 
-      <!-- Engineering Blueprint -->
+.status-dot {
+  width: 8px;
+  height: 8px;
 
-      <div
-        class="hero-visual"
-        aria-label="Mechanical engineering blueprint illustration"
-      >
+  border-radius: 50%;
+  background: #22c55e;
 
-        <div class="grid-plane"></div>
+  box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.12);
+}
 
-        <div class="blueprint">
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
 
-          <div class="blueprint-title">
-            MECH / 01
-          </div>
+  margin-bottom: 55px;
+}
 
-          <div class="gear gear-large"></div>
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-          <div class="gear gear-small"></div>
+  padding: 14px 22px;
 
-          <div class="dimension horizontal">
-            <span>120 mm</span>
-          </div>
+  border-radius: 9px;
 
-          <div class="dimension vertical">
-            <span>80 mm</span>
-          </div>
+  font-weight: 600;
 
-          <div class="crosshair"></div>
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
 
-          <div class="blueprint-label">
-            ENGINEERING<br>
-            DESIGN
-          </div>
+.button:hover {
+  transform: translateY(-2px);
+}
 
-        </div>
+.button.primary {
+  background: #2563eb;
+  color: white;
 
-      </div>
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.22);
+}
 
-    </section>
+.button.primary:hover {
+  background: #1d4ed8;
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.3);
+}
 
+.button.secondary {
+  background: white;
+  border: 1px solid #d1d5db;
+}
 
-    <!-- ================= ABOUT ================= -->
+.button.secondary:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}
 
-    <section id="about" class="section container">
 
-      <div class="section-heading">
+/* =========================================================
+   5. HERO STATS
+   ========================================================= */
 
-        <p class="eyebrow">
-          01 / About
-        </p>
+.quick-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 45px;
+}
 
-        <h2>
-          Engineering student.
-          <br>
-          <span>Hands-on problem solver.</span>
-        </h2>
+.quick-stats div {
+  display: flex;
+  flex-direction: column;
+}
 
-      </div>
+.quick-stats strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+}
 
+.quick-stats span {
+  margin-top: 7px;
 
-      <div class="about-grid">
+  color: #6b7280;
 
-        <div class="about-copy">
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 
-          <p>
-            I am currently pursuing a
-            <strong>B.S. in Mechanical Engineering</strong>
-            at the University of Colorado Boulder, where I am developing
-            a foundation in mechanical engineering and technical
-            problem solving.
-          </p>
 
-          <p>
-            My experience includes engineering and forensic reconstruction,
-            3D point cloud analysis, mechanical systems, data collection,
-            technical documentation, and hands-on mechanical maintenance.
-          </p>
+/* =========================================================
+   6. HERO BLUEPRINT
+   ========================================================= */
 
-          <p>
-            I enjoy working on practical engineering problems and applying
-            technical knowledge in real-world environments.
-          </p>
+.hero-visual {
+  position: relative;
 
-          <a class="text-link" href="#projects">
-            View my projects →
-          </a>
+  min-height: 520px;
 
-        </div>
+  display: grid;
+  place-items: center;
 
+  overflow: hidden;
 
-        <div class="education-card">
+  border-radius: 28px;
 
-          <div class="card-top">
+  background:
+    linear-gradient(
+      rgba(37, 99, 235, 0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(37, 99, 235, 0.07) 1px,
+      transparent 1px
+    );
 
-            <span>EDUCATION</span>
+  background-size: 32px 32px;
 
-            <span>
-              2024 — 2028
-            </span>
+  border: 1px solid rgba(37, 99, 235, 0.14);
+}
 
-          </div>
+.grid-plane {
+  position: absolute;
+  inset: 0;
 
-          <h3>
-            B.S. Mechanical Engineering
-          </h3>
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(37, 99, 235, 0.13),
+      transparent 65%
+    );
+}
 
-          <p>
-            University of Colorado Boulder
-          </p>
+.blueprint {
+  position: relative;
 
-          <div class="course-tags">
+  width: 70%;
+  height: 70%;
 
-            <span>Mechanical Engineering</span>
-            <span>GPA 3.51</span>
-            <span>CAD</span>
-            <span>MATLAB</span>
-            <span>Vehicle Dynamics</span>
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-          </div>
+  border: 1px solid rgba(37, 99, 235, 0.35);
 
-        </div>
+  transform: rotate(-4deg);
 
-      </div>
+  background: rgba(255, 255, 255, 0.35);
 
-    </section>
+  box-shadow:
+    0 30px 70px rgba(37, 99, 235, 0.1),
+    inset 0 0 50px rgba(37, 99, 235, 0.05);
+}
 
+.blueprint-title {
+  position: absolute;
+  top: 18px;
+  left: 20px;
 
-    <!-- ================= PROJECTS ================= -->
+  color: #2563eb;
 
-    <section id="projects" class="section section-dark">
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
 
-      <div class="container">
+.blueprint-label {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
 
-        <div class="section-heading split-heading">
+  color: #2563eb;
 
-          <div>
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+}
 
-            <p class="eyebrow">
-              02 / Projects
-            </p>
+.crosshair {
+  position: absolute;
 
-            <h2>
-              Things I’ve
-              <span>designed & built.</span>
-            </h2>
+  width: 120px;
+  height: 120px;
 
-          </div>
+  border: 1px dashed rgba(37, 99, 235, 0.4);
 
-        </div>
+  border-radius: 50%;
+}
 
+.crosshair::before,
+.crosshair::after {
+  content: "";
 
-        <div class="project-grid">
+  position: absolute;
 
+  background: rgba(37, 99, 235, 0.4);
+}
 
-          <!-- PROJECT 1 -->
+.crosshair::before {
+  width: 160px;
+  height: 1px;
 
-          <article class="project-card featured">
+  left: -21px;
+  top: 59px;
+}
 
-            <div class="project-image project-brace">
+.crosshair::after {
+  width: 1px;
+  height: 160px;
 
-              <span class="project-number">
-                01
-              </span>
+  top: -21px;
+  left: 59px;
+}
 
-              <span class="project-type">
-                3D PRINTING
-              </span>
+.gear {
+  position: absolute;
 
-              <div class="project-icon">
-                +
-              </div>
+  border-radius: 50%;
 
-            </div>
+  border: 10px dashed #2563eb;
 
+  opacity: 0.75;
+}
 
-            <div class="project-body">
+.gear-large {
+  width: 190px;
+  height: 190px;
+}
 
-              <p class="project-kicker">
-                Personal / Design Project
-              </p>
+.gear-small {
+  width: 90px;
+  height: 90px;
 
-              <h3>
-                Custom Medical Brace
-              </h3>
+  right: 55px;
+  bottom: 65px;
 
-              <p>
-                Designed and 3D printed a custom medical brace with an
-                emphasis on creating a functional, personalized component
-                through digital design and additive manufacturing.
-              </p>
+  border-width: 7px;
+}
 
-              <div class="project-tags">
+.dimension.horizontal {
+  position: absolute;
 
-                <span>CAD</span>
-                <span>3D Printing</span>
-                <span>FDM</span>
+  left: 15%;
+  right: 15%;
+  bottom: 12%;
 
-              </div>
+  border-top: 1px solid #2563eb;
+}
 
-            </div>
+.dimension.horizontal span {
+  position: absolute;
 
-          </article>
+  left: 50%;
+  top: -25px;
 
+  transform: translateX(-50%);
 
-          <!-- PROJECT 2 -->
+  color: #2563eb;
 
-          <article class="project-card">
+  font-size: 0.65rem;
+}
 
-            <div class="project-image project-engine">
+.dimension.vertical {
+  position: absolute;
 
-              <span class="project-number">
-                02
-              </span>
+  top: 15%;
+  bottom: 15%;
+  left: 12%;
 
-              <span class="project-type">
-                MECHANICAL
-              </span>
+  border-left: 1px solid #2563eb;
+}
 
-              <div class="engine-cylinder"></div>
-              <div class="engine-piston"></div>
-              <div class="engine-crank"></div>
+.dimension.vertical span {
+  position: absolute;
 
-            </div>
+  top: 50%;
+  left: -42px;
 
+  transform: translateY(-50%) rotate(-90deg);
 
-            <div class="project-body">
+  color: #2563eb;
 
-              <p class="project-kicker">
-                Mechanical Design Project
-              </p>
+  font-size: 0.65rem;
+}
 
-              <h3>
-                Wobbler Engine
-              </h3>
 
-              <p>
-                Designed and built a functional wobbler engine to explore
-                mechanical motion, component relationships, and the
-                interaction of a piston, cylinder, crank, and flywheel.
-              </p>
+/* =========================================================
+   7. SECTIONS
+   ========================================================= */
 
-              <div class="project-tags">
+.section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
 
-                <span>Mechanical Design</span>
-                <span>CAD</span>
-                <span>Fabrication</span>
+.section-light {
+  background: #f5f6f8;
+}
 
-              </div>
+.section-dark {
+  background: #0b1120;
+  color: white;
+}
 
-            </div>
+.section-dark p {
+  color: #aab4c5;
+}
 
-          </article>
+.section-dark .eyebrow {
+  color: #60a5fa;
+}
 
 
-          <!-- PROJECT 3 -->
+/* =========================================================
+   8. ABOUT
+   ========================================================= */
 
-          <article class="project-card">
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
 
-            <div class="project-image project-ratchet">
+  align-items: center;
+}
 
-              <span class="project-number">
-                03
-              </span>
+.about-copy p {
+  margin-bottom: 22px;
 
-              <span class="project-type">
-                CAD
-              </span>
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
 
-              <div class="ratchet-wheel"></div>
-              <div class="ratchet-handle"></div>
-              <div class="ratchet-bar"></div>
+.about-copy strong {
+  color: #111827;
+}
 
-            </div>
+.text-link {
+  display: inline-flex;
+  align-items: center;
 
+  margin-top: 10px;
 
-            <div class="project-body">
+  color: #2563eb;
 
-              <p class="project-kicker">
-                CAD Assembly
-              </p>
+  font-weight: 700;
 
-              <h3>
-                Ratchet Strap Assembly
-              </h3>
+  transition:
+    gap 0.2s ease,
+    color 0.2s ease;
+}
 
-              <p>
-                Created a detailed CAD assembly of a ratchet strap
-                mechanism, modeling individual components and organizing
-                them into a complete mechanical assembly.
-              </p>
+.text-link:hover {
+  color: #1d4ed8;
+}
 
-              <div class="project-tags">
 
-                <span>SolidWorks</span>
-                <span>CAD</span>
-                <span>Assembly</span>
+/* =========================================================
+   9. EDUCATION CARD
+   ========================================================= */
 
-              </div>
+.education-card {
+  padding: 35px;
 
-            </div>
+  background: white;
 
-          </article>
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
 
+  box-shadow:
+    0 20px 50px rgba(17, 24, 39, 0.06);
+}
 
-        </div>
+.card-top {
+  display: flex;
+  justify-content: space-between;
 
-      </div>
+  margin-bottom: 35px;
 
-    </section>
+  color: #6b7280;
 
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
 
-    <!-- ================= EXPERIENCE ================= -->
+.education-card h3 {
+  margin-bottom: 8px;
+}
 
-    <section id="experience" class="section section-light">
+.course-tags,
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 
-      <div class="container">
+  margin-top: 22px;
+}
 
-        <div class="section-heading">
+.course-tags span,
+.project-tags span {
+  padding: 6px 10px;
 
-          <p class="eyebrow">
-            03 / Experience
-          </p>
+  border-radius: 999px;
 
-          <h2>
-            Learning through
-            <span>real-world work.</span>
-          </h2>
+  background: #eef2ff;
 
-        </div>
+  color: #374151;
 
+  font-size: 0.72rem;
+  font-weight: 600;
+}
 
-        <div class="timeline">
 
+/* =========================================================
+   10. PROJECTS
+   ========================================================= */
 
-          <!-- J.S. HELD -->
+#projects {
+  overflow: hidden;
+}
 
-          <article class="timeline-item">
+.project-grid {
+  display: grid;
 
-            <div class="timeline-date">
-              May 2025 — August 2025
-            </div>
+  grid-template-columns: repeat(2, 1fr);
 
-            <div>
+  gap: 25px;
+}
 
-              <h3>
-                Reconstruction Intern
-              </h3>
+.project-card {
+  overflow: hidden;
 
-              <p class="muted">
-                J.S. Held
-              </p>
+  background: #111827;
 
-              <p>
-                Used engineering and forensic principles within a team
-                to reconstruct vehicle crashes for major manufacturers.
-              </p>
+  border: 1px solid rgba(255, 255, 255, 0.09);
 
-              <p>
-                Used 3D scanners to collect, analyze, and process
-                point cloud data.
-              </p>
+  border-radius: 18px;
 
-              <p>
-                Collected data and tested a variety of mechanical systems
-                to create technical reports and develop mechanical knowledge.
-              </p>
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
 
-              <p>
-                Maintained organized file structures and documentation
-                for use during depositions and trials.
-              </p>
+.project-card:hover {
+  transform: translateY(-8px);
 
-              <div class="project-tags">
+  border-color: rgba(96, 165, 250, 0.5);
 
-                <span>3D Scanning</span>
-                <span>Point Clouds</span>
-                <span>Vehicle Dynamics</span>
-                <span>Forensics</span>
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.3);
+}
 
-              </div>
+.project-card.featured {
+  grid-column: span 2;
+}
 
-            </div>
 
-          </article>
+/* =========================================================
+   11. PROJECT PHOTOS
+   ========================================================= */
 
+.project-image {
+  position: relative;
 
-          <!-- SPEEDY SPARKLE -->
+  height: 360px;
 
-          <article class="timeline-item">
+  overflow: hidden;
 
-            <div class="timeline-date">
-              August 2025 — Present
-            </div>
+  background: #1f2937;
+}
 
-            <div>
+.project-card.featured .project-image {
+  height: 480px;
+}
 
-              <h3>
-                Supervisor
-              </h3>
+.project-image img {
+  width: 100%;
+  height: 100%;
 
-              <p class="muted">
-                Speedy Sparkle Car Wash
-              </p>
+  object-fit: cover;
 
-              <p>
-                Operate, maintain, and repair mechanical wash assemblies
-                while ensuring equipment operates effectively.
-              </p>
+  display: block;
 
-              <p>
-                Manage teams to quickly and efficiently complete daily tasks.
-              </p>
+  transition:
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.4s ease;
+}
 
-              <p>
-                Apply attention to detail and cleanliness to maintain
-                a high-quality customer environment.
-              </p>
+.project-card:hover .project-image img {
+  transform: scale(1.06);
 
-              <p>
-                Use customer service skills to meet customer needs and
-                create a comfortable atmosphere.
-              </p>
+  filter: brightness(1.05);
+}
 
-              <div class="project-tags">
 
-                <span>Mechanical Systems</span>
-                <span>Maintenance</span>
-                <span>Team Leadership</span>
-                <span>Problem Solving</span>
+/* Dark overlay */
 
-              </div>
+.project-image::after {
+  content: "";
 
-            </div>
+  position: absolute;
+  inset: 0;
 
-          </article>
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.08) 20%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
 
+  pointer-events: none;
+}
 
-        </div>
 
-      </div>
+/* Project number */
 
-    </section>
+.project-number {
+  position: absolute;
 
+  top: 22px;
+  left: 22px;
 
-    <!-- ================= SKILLS ================= -->
+  z-index: 3;
 
-    <section id="skills" class="section section-light">
+  color: white;
 
-      <div class="container">
+  font-family: "Space Grotesk", sans-serif;
 
-        <div class="section-heading">
+  font-size: 0.75rem;
+  font-weight: 700;
 
-          <p class="eyebrow">
-            04 / Technical Skills
-          </p>
+  letter-spacing: 0.1em;
+}
 
-          <h2>
-            Tools I use to
-            <span>solve problems.</span>
-          </h2>
 
-        </div>
+/* Project type */
 
+.project-type {
+  position: absolute;
 
-        <div class="skills-grid">
+  right: 22px;
+  top: 22px;
 
+  z-index: 3;
 
-          <!-- CAD -->
+  padding: 7px 10px;
 
-          <div class="skill-card">
+  border: 1px solid rgba(255, 255, 255, 0.35);
 
-            <span class="skill-number">
-              01
-            </span>
+  border-radius: 999px;
 
-            <h3>
-              CAD & Design
-            </h3>
+  background: rgba(0, 0, 0, 0.3);
 
-            <p>
-              Experience with SolidWorks and mechanical CAD assemblies.
-            </p>
+  backdrop-filter: blur(8px);
 
-            <div class="project-tags">
+  color: white;
 
-              <span>SolidWorks</span>
-              <span>CSWA</span>
+  font-size: 0.65rem;
+  font-weight: 700;
 
-            </div>
+  letter-spacing: 0.1em;
+}
 
-          </div>
 
+/* =========================================================
+   12. PROJECT BODY
+   ========================================================= */
 
-          <!-- ANALYSIS -->
+.project-body {
+  padding: 30px;
+}
 
-          <div class="skill-card">
+.project-kicker {
+  margin-bottom: 8px;
 
-            <span class="skill-number">
-              02
-            </span>
+  color: #60a5fa !important;
 
-            <h3>
-              Engineering Analysis
-            </h3>
+  font-size: 0.72rem;
+  font-weight: 700;
 
-            <p>
-              Experience with 3D point cloud analysis and vehicle dynamics.
-            </p>
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
 
-            <div class="project-tags">
+.project-body h3 {
+  margin-bottom: 14px;
 
-              <span>Point Clouds</span>
-              <span>Vehicle Dynamics</span>
+  color: white;
 
-            </div>
+  font-size: 1.6rem;
+}
 
-          </div>
+.project-body > p:not(.project-kicker) {
+  line-height: 1.75;
+}
 
+.project-body .project-tags {
+  margin-top: 22px;
+}
 
-          <!-- PROGRAMMING -->
+.project-body .project-tags span {
+  background: #1f2937;
+  color: #cbd5e1;
 
-          <div class="skill-card">
+  border: 1px solid #374151;
+}
 
-            <span class="skill-number">
-              03
-            </span>
 
-            <h3>
-              Programming & Data
-            </h3>
+/* =========================================================
+   13. EXPERIENCE TIMELINE
+   ========================================================= */
 
-            <p>
-              Experience with MATLAB, C programming, and Microsoft Excel.
-            </p>
+.timeline {
+  position: relative;
 
-            <div class="project-tags">
+  max-width: 950px;
+  margin: 0 auto;
+}
 
-              <span>MATLAB</span>
-              <span>C</span>
-              <span>Excel</span>
+.timeline::before {
+  content: "";
 
-            </div>
+  position: absolute;
 
-          </div>
+  top: 0;
+  bottom: 0;
 
+  left: 180px;
 
-          <!-- MANUFACTURING -->
+  width: 1px;
 
-          <div class="skill-card">
+  background: #d1d5db;
+}
 
-            <span class="skill-number">
-              04
-            </span>
+.timeline-item {
+  position: relative;
 
-            <h3>
-              Manufacturing
-            </h3>
+  display: grid;
 
-            <p>
-              Hands-on experience with SLA and FDM manufacturing
-              and MIG welding.
-            </p>
+  grid-template-columns: 180px 1fr;
 
-            <div class="project-tags">
+  gap: 50px;
 
-              <span>SLA</span>
-              <span>FDM</span>
-              <span>MIG Welding</span>
+  padding-bottom: 65px;
+}
 
-            </div>
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
 
-          </div>
+.timeline-date {
+  position: relative;
 
+  padding-top: 5px;
 
-        </div>
+  color: #2563eb;
 
-      </div>
+  font-size: 0.78rem;
+  font-weight: 700;
 
-    </section>
+  line-height: 1.5;
+}
 
+.timeline-date::after {
+  content: "";
 
-    <!-- ================= EDUCATION ================= -->
+  position: absolute;
 
-    <section id="education" class="section container">
+  right: -56px;
+  top: 8px;
 
-      <div class="section-heading">
+  width: 11px;
+  height: 11px;
 
-        <p class="eyebrow">
-          05 / Education
-        </p>
+  border-radius: 50%;
 
-        <h2>
-          Building my
-          <span>engineering foundation.</span>
-        </h2>
+  background: #2563eb;
 
-      </div>
+  border: 3px solid #f5f6f8;
+}
 
+.timeline-item h3 {
+  margin-bottom: 5px;
+}
 
-      <div class="education-large">
+.timeline-item .muted {
+  margin-bottom: 20px;
 
-        <div>
+  color: #6b7280;
 
-          <p class="education-year">
-            2024 — 2028
-          </p>
+  font-size: 0.9rem;
+  font-weight: 600;
+}
 
-          <h3>
-            University of Colorado Boulder
-          </h3>
+.timeline-item p {
+  margin-bottom: 12px;
+}
 
-          <p>
-            B.S. Mechanical Engineering
-          </p>
 
-        </div>
+/* =========================================================
+   14. SKILLS
+   ========================================================= */
 
+.skills-grid {
+  display: grid;
 
-        <div class="education-stats">
+  grid-template-columns: repeat(4, 1fr);
 
-          <div>
+  gap: 18px;
+}
 
-            <strong>
-              3.51
-            </strong>
+.skill-card {
+  position: relative;
 
-            <span>
-              GPA
-            </span>
+  padding: 30px;
 
-          </div>
+  background: white;
 
+  border: 1px solid #e5e7eb;
 
-          <div>
+  border-radius: 16px;
 
-            <strong>
-              BS
-            </strong>
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
 
-            <span>
-              Mechanical Engineering
-            </span>
+.skill-card:hover {
+  transform: translateY(-5px);
 
-          </div>
+  border-color: #bfdbfe;
 
-        </div>
+  box-shadow:
+    0 20px 40px rgba(17, 24, 39, 0.08);
+}
 
-      </div>
+.skill-number {
+  display: block;
 
-    </section>
+  margin-bottom: 35px;
 
+  color: #2563eb;
 
-    <!-- ================= CONTACT ================= -->
+  font-family: "Space Grotesk", sans-serif;
 
-    <section id="contact" class="section container contact-section">
+  font-size: 0.75rem;
+  font-weight: 700;
+}
 
-      <div class="contact-card">
+.skill-card h3 {
+  margin-bottom: 12px;
+}
 
-        <div>
+.skill-card p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
 
-          <p class="eyebrow">
-            06 / Contact
-          </p>
 
-          <h2>
-            Have an opportunity,
-            <br>
-            project, or idea?
-          </h2>
+/* =========================================================
+   15. LARGE EDUCATION SECTION
+   ========================================================= */
 
-          <p>
-            I’m interested in engineering opportunities where I can apply
-            my technical knowledge, problem-solving abilities, and
-            hands-on experience.
-          </p>
+.education-large {
+  display: flex;
 
-        </div>
+  justify-content: space-between;
+  align-items: center;
 
+  gap: 40px;
 
-        <div class="contact-links">
+  padding: 50px;
 
-          <a href="mailto:Reagan.Chiles@Colorado.edu">
+  background: white;
 
-            <span>
-              Email
-            </span>
+  border: 1px solid #e5e7eb;
 
-            <strong>
-              Reagan.Chiles@Colorado.edu ↗
-            </strong>
+  border-radius: 20px;
 
-          </a>
+  box-shadow:
+    0 20px 50px rgba(17, 24, 39, 0.05);
+}
 
+.education-year {
+  margin-bottom: 12px;
 
-          <a href="tel:+17206487042">
+  color: #2563eb;
 
-            <span>
-              Phone
-            </span>
+  font-size: 0.8rem;
+  font-weight: 700;
+}
 
-            <strong>
-              720-648-7042 ↗
-            </strong>
+.education-large h3 {
+  margin-bottom: 8px;
 
-          </a>
+  font-size: 2rem;
+}
 
-        </div>
+.education-stats {
+  display: flex;
 
-      </div>
+  gap: 50px;
+}
 
-    </section>
+.education-stats div {
+  display: flex;
+  flex-direction: column;
+}
 
-  </main>
+.education-stats strong {
+  font-family: "Space Grotesk", sans-serif;
 
+  font-size: 2.2rem;
+}
 
-  <!-- ================= FOOTER ================= -->
+.education-stats span {
+  max-width: 130px;
 
-  <footer class="footer">
+  color: #6b7280;
 
-    <div class="container footer-inner">
+  font-size: 0.7rem;
+  font-weight: 700;
 
-      <span>
-        © <span id="year"></span> Reagan Chiles
-      </span>
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
 
-      <span>
-        Mechanical Engineering · CU Boulder
-      </span>
 
-      <a href="#top">
-        Back to top ↑
-      </a>
+/* =========================================================
+   16. CONTACT
+   ========================================================= */
 
-    </div>
+.contact-section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
 
-  </footer>
+.contact-card {
+  display: grid;
 
+  grid-template-columns: 1fr 0.8fr;
 
-  <script src="script.js"></script>
+  gap: 70px;
 
-</body>
-</html>
+  padding: 65px;
+
+  background: #111827;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 30px 70px rgba(17, 24, 39, 0.18);
+}
+
+.contact-card h2 {
+  margin-bottom: 20px;
+
+  color: white;
+
+  font-size: clamp(2.2rem, 5vw, 4rem);
+}
+
+.contact-card > div:first-child > p:last-child {
+  max-width: 550px;
+
+  color: #aab4c5;
+
+  line-height: 1.8;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 15px;
+}
+
+.contact-links a {
+  display: flex;
+  flex-direction: column;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  transition:
+    padding-left 0.2s ease,
+    color 0.2s ease;
+}
+
+.contact-links a:hover {
+  padding-left: 8px;
+}
+
+.contact-links span {
+  margin-bottom: 5px;
+
+  color: #60a5fa;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.contact-links strong {
+  color: white;
+
+  font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   17. FOOTER
+   ========================================================= */
+
+.footer {
+  padding: 25px 0;
+
+  background: #080d18;
+
+  color: #8b95a7;
+
+  font-size: 0.78rem;
+}
+
+.footer-inner {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.footer a {
+  color: #cbd5e1;
+
+  font-weight: 600;
+}
+
+.footer a:hover {
+  color: #60a5fa;
+}
+
+
+/* =========================================================
+   18. PROJECT IMAGE INDIVIDUAL SETTINGS
+   ========================================================= */
+
+/* Medical brace */
+
+.project-card.featured .project-image img {
+  object-position: center center;
+}
+
+
+/* Wobbler engine */
+
+.project-card:nth-child(2) .project-image img {
+  object-position: center center;
+}
+
+
+/* Ratchet strap CAD */
+
+.project-card:nth-child(3) .project-image img {
+  object-fit: contain;
+
+  padding: 25px;
+
+  background: #e5e7eb;
+}
+
+
+/* =========================================================
+   19. SCROLL REVEAL
+   ========================================================= */
+
+.project-card,
+.skill-card,
+.education-card,
+.timeline-item {
+  animation: fadeUp 0.7s ease both;
+}
+
+@keyframes fadeUp {
+
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   20. SELECTION
+   ========================================================= */
+
+::selection {
+  background: #2563eb;
+  color: white;
+}
+
+
+/* =========================================================
+   21. MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .container {
+    width: min(100% - 30px, 700px);
+  }
+
+
+  /* Navigation */
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+
+    top: 78px;
+    left: 15px;
+    right: 15px;
+
+    display: none;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    padding: 20px;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    box-shadow:
+      0 20px 50px rgba(17, 24, 39, 0.12);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 10px 5px;
+  }
+
+  .nav-button {
+    text-align: center;
+  }
+
+
+  /* Hero */
+
+  .hero {
+    grid-template-columns: 1fr;
+
+    padding-top: 60px;
+  }
+
+  .hero-visual {
+    min-height: 420px;
+  }
+
+
+  /* About */
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* Projects */
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card.featured {
+    grid-column: span 1;
+  }
+
+  .project-card.featured .project-image {
+    height: 380px;
+  }
+
+  .project-image {
+    height: 330px;
+  }
+
+
+  /* Skills */
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  /* Experience */
+
+  .timeline::before {
+    left: 0;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+
+    padding-left: 25px;
+  }
+
+  .timeline-date {
+    padding-left: 0;
+  }
+
+  .timeline-date::after {
+    left: -31px;
+    right: auto;
+  }
+
+
+  /* Education */
+
+  .education-large {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+
+  /* Contact */
+
+  .contact-card {
+    grid-template-columns: 1fr;
+
+    padding: 40px;
+
+    gap: 35px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  h1 {
+    font-size: clamp(2.8rem, 14vw, 4.5rem);
+  }
+
+  h2 {
+    font-size: 2.6rem;
+  }
+
+  .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .section-heading {
+    margin-bottom: 40px;
+  }
+
+  .hero {
+    min-height: auto;
+
+    padding-top: 50px;
+    padding-bottom: 70px;
+  }
+
+  .hero-visual {
+    min-height: 350px;
+  }
+
+  .blueprint {
+    width: 82%;
+    height: 70%;
+  }
+
+  .gear-large {
+    width: 145px;
+    height: 145px;
+  }
+
+  .gear-small {
+    width: 70px;
+    height: 70px;
+  }
+
+  .quick-stats {
+    gap: 25px;
+  }
+
+  .quick-stats strong {
+    font-size: 1.6rem;
+  }
+
+
+  /* Project photos */
+
+  .project-image,
+  .project-card.featured .project-image {
+    height: 300px;
+  }
+
+  .project-body {
+    padding: 24px;
+  }
+
+
+  /* Skills */
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* Education */
+
+  .education-large {
+    padding: 30px;
+  }
+
+  .education-stats {
+    gap: 30px;
+  }
+
+
+  /* Contact */
+
+  .contact-card {
+    padding: 30px 24px;
+  }
+
+
+  /* Footer */
+
+  .footer-inner {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+}
+
+
+/* =========================================================
+   22. ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}
