@@ -6,8 +6,6 @@
   <meta name="description" content="Reagan Chiles — Mechanical Engineering student at the University of Colorado Boulder.">
   <title>Reagan Chiles | Mechanical Engineering Portfolio</title>
 
-
-
   <style>
     :root {
       --navy: #14243d;
@@ -180,6 +178,7 @@
 
     .hero-facts div { display: flex; flex-direction: column; }
     .hero-facts strong { font-size: 24px; }
+
     .hero-facts span {
       color: var(--muted);
       font: 9px var(--mono);
@@ -422,13 +421,16 @@
       border-radius: 8px;
     }
 
+    /* Consistent image windows for every project card */
     .project-image {
-      height: 210px;
+      height: 230px;
+      width: 100%;
       position: relative;
       display: grid;
       place-items: center;
       overflow: hidden;
-      background: linear-gradient(135deg, #263f62, #14243d);
+      background: #e9edf4;
+      border-bottom: 1px solid #ffffff20;
     }
 
     .project-image img {
@@ -436,7 +438,28 @@
       height: 100%;
       position: absolute;
       inset: 0;
+      display: block;
       object-fit: cover;
+      object-position: center;
+    }
+
+    /* Photographs fill the frame; CAD screenshots show the complete model */
+    .project-image .brace-image {
+      object-fit: cover;
+      object-position: center 45%;
+    }
+
+    .project-image .engine-image {
+      object-fit: cover;
+      object-position: center 50%;
+    }
+
+    .project-image .ratchet-image,
+    .project-image .cubesat-image {
+      object-fit: contain;
+      object-position: center;
+      padding: 12px;
+      background: #e9edf4;
     }
 
     .project-index, .project-kind {
@@ -544,6 +567,7 @@
     }
 
     .education-panel h3 { margin-bottom: 5px; }
+
     .education-panel p:last-child {
       color: var(--muted);
       font-size: 12px;
@@ -625,6 +649,7 @@
     @media (max-width: 700px) {
       .container { width: calc(100% - 34px); }
       .menu-toggle { display: block; }
+
       .nav-links {
         display: none;
         position: absolute;
@@ -639,6 +664,7 @@
       }
 
       .nav-links.is-open { display: flex; }
+
       .hero, .about-grid, .current-grid, .contact-panel {
         grid-template-columns: 1fr;
       }
@@ -649,14 +675,26 @@
       .section-head-row { display: block; }
       .section-note { margin-top: 15px; }
       .project-grid, .skills-grid { grid-template-columns: 1fr; }
+      .project-image { height: 220px; }
       .timeline-item { grid-template-columns: 1fr; gap: 10px; }
+
       .contact-details {
         border-left: 0;
         border-top: 1px solid #ffffff30;
         padding: 24px 0 0;
       }
-      .strip-inner { justify-content: center; flex-wrap: wrap; padding-block: 15px; }
-      .footer-inner { justify-content: center; flex-wrap: wrap; padding-block: 20px; }
+
+      .strip-inner {
+        justify-content: center;
+        flex-wrap: wrap;
+        padding-block: 15px;
+      }
+
+      .footer-inner {
+        justify-content: center;
+        flex-wrap: wrap;
+        padding-block: 20px;
+      }
     }
   </style>
 </head>
@@ -709,6 +747,13 @@
         </div>
       </div>
 
+      <div class="hero-art" aria-label="Abstract engineering illustration">
+        <span class="art-label art-top">MECHANICAL ENGINEERING / 001</span>
+        <div class="orbit"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="gear-core"><div class="gear-inner"></div></div>
+        <span class="art-label art-bottom">DESIGN · ANALYSIS · BUILD</span>
+      </div>
     </section>
 
     <div class="intro-strip">
@@ -832,9 +877,9 @@
         <div class="project-grid">
           <article class="project-card">
             <div class="project-image">
+              <img class="cubesat-image" src="assets/51e72a2a-529c-445b-89ee-fc3d1a5887ab.png" alt="1U CubeSat structural design model">
               <span class="project-index">01</span>
               <span class="project-kind">SYSTEMS ENGINEERING</span>
-              <div class="wireframe-two"></div>
             </div>
             <div class="project-content">
               <p class="eyebrow">PERSONAL ENGINEERING PROJECT</p>
@@ -858,7 +903,7 @@
 
           <article class="project-card">
             <div class="project-image">
-              <img src="assets/medical-brace.jpg" alt="Custom 3D printed medical brace">
+              <img class="brace-image" src="assets/medical-brace.jpg" alt="Custom 3D printed medical brace">
               <span class="project-index">02</span>
               <span class="project-kind">3D PRINTING</span>
             </div>
@@ -871,7 +916,7 @@
                 reduced material usage by 50% while maintaining structural support, then
                 manufactured and iterated FDM prototypes. I personally had two goals in mind for this
                 project. Needed to be custom to the wearer and designed for manufactering. I wanted a turn around of 24 hours from scan to brace which we achieved
-                
+
               </p>
               <div class="tag-list">
                 <span>3D Scanning</span>
@@ -883,7 +928,7 @@
 
           <article class="project-card">
             <div class="project-image">
-              <img src="assets/wobbler-engine.jpg" alt="Wobbler engine mechanical project">
+              <img class="engine-image" src="assets/wobbler-engine.jpg" alt="Wobbler engine mechanical project">
               <span class="project-index">03</span>
               <span class="project-kind">MECHANICAL DESIGN</span>
             </div>
@@ -904,7 +949,7 @@
 
           <article class="project-card">
             <div class="project-image">
-              <img src="assets/ratchet-strap.png" alt="Ratchet strap assembly CAD model">
+              <img class="ratchet-image" src="assets/ratchet-strap.png" alt="Ratchet strap assembly CAD model">
               <span class="project-index">04</span>
               <span class="project-kind">FEA / CAD</span>
             </div>
